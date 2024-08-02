@@ -1,1 +1,1 @@
-click and arrastra
+click en algun lugar da como resultado que no pueda salir luego, arrastra impidiendo cerrar el programa buscar shortekey
