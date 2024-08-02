@@ -19,6 +19,7 @@ def click_on_screen(x, y):
     pyautogui.click()
 
 if __name__ == "__main__":
-    for root, dirs, file in os.walk('./resources_example'):
+    for root, dirs, files in os.walk('./resources_example'):
         #print(root, dirs, file)
-        
+        for file in files:
+            coords = find_template_on_screen(os.path.join(root, file))
