@@ -11,8 +11,9 @@ def capture_screenshoot(region=None):
 
 def find_template_on_screen(template_path, threshold=0.8):
     template = cv2.imread(template_path, 0)
-    print(template.shape)
+    #print(template.shape)
     w, h = template.shape[::-1]
+    #print(w, h)
 
 def click_on_screen(x, y):
     pyautogui.moveTo(x, y)
