@@ -38,15 +38,22 @@ def find_template_on_screen(template_path, threshold=0.8):
         #print(pt[0] + weight // 2, pt[1] + height // 2)
         return pt[0] + weight // 2, pt[1] + height // 2
     
-    #return None
+    return None
     
 
 def click_on_screen(x, y):
+    time.time(2)
     pyautogui.moveTo(x, y)
     pyautogui.click()
+    time.time(2)
 
 if __name__ == "__main__":
     for root, dirs, files in os.walk('./resources_example'):
         #print(root, dirs, file)
         for file in files:
             coords = find_template_on_screen(os.path.join(root, file))
+            
+            if coords:
+                click_on_screen(*coords)
+            else:
+                print('Continue...')
