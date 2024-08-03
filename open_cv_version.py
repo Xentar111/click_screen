@@ -16,7 +16,7 @@ def find_template_on_screen(template_path, threshold=0.8):
     #print(w, h)
     
     
-    screen_shoot = capture_screenshoot()
+    screen_shoot = capture_screenshoot()#Pillow segun chatgpt
     #screenshoot = pyautogui.screenshot(region=region)
     #screenshoot = cv2.cvtColor(np.array(screenshoot), cv2.COLOR_BGR2RGB)
     screen_gray = cv2.cvtColor(screen_shoot, cv2.COLOR_BGR2GRAY)
