@@ -20,15 +20,25 @@ def find_template_on_screen(template_path, threshold=0.8):
     #screenshoot = pyautogui.screenshot(region=region)
     #screenshoot = cv2.cvtColor(np.array(screenshoot), cv2.COLOR_BGR2RGB)
     screen_gray = cv2.cvtColor(screen_shoot, cv2.COLOR_BGR2GRAY)
-    print(screen_gray)
+    #print(screen_gray)
     
     #encontrar mediante la plantilla el elemento en la pantalla
     res = cv2.matchTemplate(screen_gray, template, cv2.TM_CCOEFF_NORMED)
-    print(res.shape)
+    #print(res.shape)
     loc = np.where(res >= threshold)
-    print(loc)
     
+    print(*loc[::-1])
+    #print(zip(*loc[::-1]))#>>0
     
+    for pt in zip(*loc[::-1]):
+        cv2.circle(screen_shoot, pt, (pt[0] + weight, pt[1] + height),(0, 255, 0), 2)
+        cv2.imshow('Detected', screen_shoot)
+        cv2.waitKey(500)
+        
+        #print(pt[0] + weight // 2, pt[1] + height // 2)
+        return pt[0] + weight // 2, pt[1] + height // 2
+    
+    #return None
     
 
 def click_on_screen(x, y):
